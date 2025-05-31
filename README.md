@@ -1,26 +1,32 @@
-# Successful Educations: Data Science Final Project
+# Student Habits and Academic Performance
 
-This project explores the academic backgrounds of 108 globally recognized individuals using a dataset from Kaggle:  
-https://www.kaggle.com/datasets/adilshamim8/educational-backgrounds-of-successful-people
+This project analyzes how student lifestyle habits relate to academic success and mental health. It is based on a dataset of 1,000 students from Kaggle:  
+https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance
 
-The goal is to uncover trends in degrees, university prestige, and GPA, and how they may relate to career success. The dataset includes attributes such as name, profession, degree, institution, country, university global ranking, GPA (or equivalent), and academic awards.
+The dataset includes features such as study time, sleep, exercise, diet quality, part-time job status, social media use, and final exam scores. The goal is to explore which habits are associated with better academic performance and mental well-being.
 
 ## Data Preprocessing
 
-To ensure accurate analysis, the dataset was cleaned and preprocessed. University rankings and GPA values were converted to numeric types. Missing values in key fields such as Degree, Profession, and Country were dropped. Additional filtering was done depending on the objective (e.g., removing rows with missing GPA or ranking). Rankings were also normalized using MinMaxScaler for correlation analysis.
+The dataset was clean and complete, requiring minimal preprocessing. The `diet_quality` column was mapped to numerical values (`Poor`: 1, `Fair`: 2, `Good`: 3) to allow for correlation analysis. A correlation matrix was then generated using relevant numerical features. No rows were dropped as there were no missing values.
 
-## Objective 1: Degree Distribution Across Professions
+## Objective 1: Relationship Between Study Time and Academic Performance
 
-We examined how different academic degrees are distributed across professions. By grouping and counting degree-profession combinations, we found that Bachelor's degrees in Business and Entrepreneurship are the most frequent. Master's degrees and MBAs are also common, particularly among entrepreneurs and tech executives. Some outliers, like law degrees and dropouts, also appear, highlighting that success is not limited to conventional paths.
+A scatter plot with a regression line was used to examine the relationship between study hours per day and exam scores. The correlation coefficient was calculated to be **0.83**, indicating a strong positive relationship. This means that students who spend more time studying tend to perform better on exams, suggesting that consistent study habits are a key driver of academic success.
 
-## Objective 2: Top Countries by Average University Ranking
+## Objective 2: Lifestyle Habits and Mental Health
 
-This analysis focused on the average global ranking of universities attended by successful people, grouped by country. The results show that the United States and Canada have the lowest (best) average rankings, followed by France, the UK, and Germany. This suggests that graduates from top-ranked institutions in North America and parts of Europe are highly represented among successful individuals.
+The analysis looked at how variables like sleep hours, exercise frequency, diet quality, and social media use correlate with mental health ratings. Results showed extremely weak correlations across all variables. Diet quality had the highest correlation at just **0.027**, and others, such as exercise and sleep, had negligible or slightly negative values. This suggests that mental health may be influenced more by factors not captured in the dataset, such as stress, personal relationships, or academic pressure.
 
-## Objective 3: GPA vs University Ranking
+## Objective 3: Academic Performance by Job and Activities
 
-We investigated whether students from higher-ranked universities tend to have higher GPAs. After normalizing rankings and plotting against GPA, the correlation analysis showed a weak negative relationship (Pearson coefficient: -0.21). This implies that although individuals from better-ranked universities may have slightly higher GPAs, the relationship is not strong. Academic performance is influenced by many factors beyond institutional prestige.
+Students were grouped based on part-time job status and participation in extracurricular activities. Average exam scores were then compared. Students without part-time jobs slightly outperformed those with jobs, especially when also involved in extracurriculars. For example, students with no job and with extracurriculars averaged **70.14**, while those with both job and extracurriculars averaged **67.58**. While the differences are small, the trend suggests that managing both commitments might reduce study time, slightly affecting performance.
 
-## Conclusion
+## Summary
 
-This project shows that while academic degrees and university reputation do play roles in the success of individuals, they are not definitive indicators. Most successful people hold at least a bachelor's or master’s degree, often from top-ranked institutions, but success also occurs outside these norms. There is only a slight connection between GPA and university ranking, suggesting that personal achievement depends on more than academics alone.
+The project shows that:
+- Study time has a strong positive impact on academic performance.
+- Lifestyle habits like sleep and diet do not significantly correlate with mental health in this dataset.
+- Balancing a job and extracurriculars may slightly reduce exam performance.
+
+These findings may help students and educators better understand how daily habits affect learning and well-being.
+
